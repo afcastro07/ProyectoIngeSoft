@@ -12,7 +12,6 @@ public class InventarioApplication implements CommandLineRunner {
 
 	public static void main(String[] args) {
 		SpringApplication.run(InventarioApplication.class, args);
-
 	}
 
 	@Autowired
