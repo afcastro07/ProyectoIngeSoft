@@ -15,4 +15,5 @@ public class InventarioApplication {
 	//hola mundo4
 	//hola mundo55555
 	//hola mundo6
+	//hola mundo7
 }
