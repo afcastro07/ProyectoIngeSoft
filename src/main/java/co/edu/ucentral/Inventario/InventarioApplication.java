@@ -9,10 +9,5 @@ public class InventarioApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(InventarioApplication.class, args);
 	}
-//hola mundo
-	//hola mundo2
-	//hola mundo3
-	//hola mundo4
-	//hola mundo55555
-	//hola mundo6
+
 }
