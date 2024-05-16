@@ -9,8 +9,8 @@ import java.io.Serializable;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name = "Proveedores")
-@Table(name = "Proveedores")
+@Entity
+@Table(name = "proveedores")
 
 public class Proveedor implements Serializable {
 
