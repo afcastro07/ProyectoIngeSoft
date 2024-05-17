@@ -8,29 +8,30 @@ import java.io.Serializable;
 
 @Data
 @NoArgsConstructor
-@Entity
-@Table(name = "proveedores")
+@AllArgsConstructor
+@Entity(name = "Proveedor")
+@Table(name = "PROVEEDOR")
 public class Proveedor implements Serializable {
 
 
         @Id
-        @Column (name = “prov_codigo”)
+        @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_PROVEEDORES")
+        @SequenceGenerator(name = "SEQ_PROVEEDORES", sequenceName = "SEQ_PROVEEDORES", allocationSize = 1)
+        @Column (name = "prov_codigo")
         private int codigo;
 
-        @Id
-        @Column (name = “prov_ciudad”, length=20)
+        @Column(name = "prov_ciudad", nullable = false)
         private String ciudad;
 
-        @Id
-        @Column (name = “prov_direccion”, length=20)
+        @Column(name = "prov_direccion", nullable = false)
         private String direccion;
 
         @Id
-        @Column (name = “prov_nombre”, length=20)
+        @Column(name = "prov_nombre", length=20)
         private String nombre;
 
         @Id
-        @Column (name = “prov_email”, length=20)
+        @Column(name = "prov_email", length=20)
         private String email;
-    }
 }
+

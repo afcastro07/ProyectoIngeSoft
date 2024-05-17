@@ -54,5 +54,4 @@ public class ControladorProveedor {
                 Proveedor proveedor = serviciosProveedor.consultarPK(pk);
                 return null;
             }
-        }
-        }
+}
