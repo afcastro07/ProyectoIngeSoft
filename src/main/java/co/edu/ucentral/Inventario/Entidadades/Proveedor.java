@@ -13,24 +13,25 @@ import java.io.Serializable;
 @Table(name = "PROVEEDOR")
 public class Proveedor implements Serializable {
 
-
         @Id
         @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_PROVEEDORES")
         @SequenceGenerator(name = "SEQ_PROVEEDORES", sequenceName = "SEQ_PROVEEDORES", allocationSize = 1)
         @Column (name = "prov_codigo")
         private int codigo;
 
+
         @Column(name = "prov_ciudad", nullable = false)
         private String ciudad;
+
 
         @Column(name = "prov_direccion", nullable = false)
         private String direccion;
 
-        @Id
+
         @Column(name = "prov_nombre", length=20)
         private String nombre;
 
-        @Id
+
         @Column(name = "prov_email", length=20)
         private String email;
 }

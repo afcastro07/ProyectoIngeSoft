@@ -10,9 +10,6 @@ import java.util.List;
 @Service
 public class ServiciosProveedor implements OperacionesProveedor {
 
-    /**
-     *
-     */
     @Autowired
     RepositorioProveedor repositorioProveedor ;
 
