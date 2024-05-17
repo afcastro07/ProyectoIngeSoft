@@ -40,7 +40,7 @@ public class ServiciosProveedor implements OperacionesProveedor {
 
     @Override
     public Proveedor consultarPK(int pk) {
-        Proveedor proveedor =  repositorioProveedor.findById(pk).orElse(null);
+        Proveedor proveedor =  repositorioProveedor.findById((long) pk).orElse(null);
 
         return null;
     }
