@@ -1,32 +1,39 @@
 package co.edu.ucentral.Inventario.Entidades;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+import lombok.*;
 
-@Entity(name="producto")
+@Entity
 @Table(name = "PRODUCTOS")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
+@Builder
 public class Productos {
     @Id
-    @Column(name="id_producto")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id_producto", nullable = false, unique = true)
     private long id_producto;
 
-    @Id
-    @Column(name="nombre_producto", length = 20)
-    private String id_nombre;
+
+    @Column(name="nombre_producto", length = 20, nullable = false)
+    private  String nombre_nombre;
 
 
-    @Id
-    @Column(name="valor_producto")
+
+    @Column(name="valor_producto", nullable = false)
     private long valor_producto;
 
+    public void setId_producto(long id_producto) {
+        this.id_producto = id_producto;
+    }
 
+    public void setNombre_nombre(String nombre_nombre) {
+        this.nombre_nombre = nombre_nombre;
+    }
+
+    public void setValor_producto(long valor_producto) {
+        this.valor_producto = valor_producto;
+    }
 }

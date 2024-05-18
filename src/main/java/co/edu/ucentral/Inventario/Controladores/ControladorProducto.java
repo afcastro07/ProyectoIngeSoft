@@ -1,11 +1,21 @@
 package co.edu.ucentral.Inventario.Controladores;
 
-
-import lombok.extern.log4j.Log4j2;
+import co.edu.ucentral.Inventario.Servicios.ServiciosProducto;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
-@Log4j2
 @Controller
 public class ControladorProducto {
+    @Autowired
+    private ServiciosProducto servicio;
 
+    @GetMapping(("/Productos"))
+    public String ListarProductos(Model model) {
+        model.addAttribute("Producto", servicio.ListarProductos());
+        return "Producto";  // retornar al archivo productos
+    }
 }
+
+//23:06
