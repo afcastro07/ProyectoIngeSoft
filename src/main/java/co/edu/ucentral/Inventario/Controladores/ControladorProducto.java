@@ -7,14 +7,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class ControladorProducto {
+public class  ControladorProducto {
     @Autowired
     private ServiciosProducto servicio;
 
-    @GetMapping(("/Productos"))
+    @GetMapping(("/productos"))
     public String ListarProductos(Model model) {
-        model.addAttribute("Producto", servicio.ListarProductos());
-        return "Producto";  // retornar al archivo productos
+        model.addAttribute("productos", servicio.ListarProductos());
+        return "productos";  // retornar al archivo productos
     }
 }
 
