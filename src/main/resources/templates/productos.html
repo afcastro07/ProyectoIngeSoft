@@ -25,9 +25,10 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">ID</th>
-                    <th scope="col">Nombre</th>
+                    <th scope="col">Tipo</th>
                     <th scope="col">Precio</th>
                     <th scope="col">Cantidad</th>
+                    <th scope="col">Modelo</th>
                 </tr>
                 </thead>
                 <tbody class="table-group-divider table-striped table-bordered">
@@ -36,11 +37,13 @@
                     <td class = "table-striped table-bordered"
                             th:text="${productos.id_producto}">ID</td>
                     <td class = "table-striped table-bordered"
-                            th:text="${productos.nombre_producto}">Nombre</td>
+                            th:text="${productos.tipo_producto}">Nombre</td>
                     <td class = "table-striped table-bordered"
                             th:text="${productos.valor_producto}">Precio</td>
                     <td class = "table-striped table-bordered"
                             th:text="${productos.cantidad_disponible}">Cantidad</td>
+                    <td class = "table-striped table-bordered"
+                        th:text="${productos.Modelo_producto}">Modelo</td>
                 </tr>
 
                 </tbody>
