@@ -20,8 +20,8 @@ public class InventarioApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		/*Productos producto1 = new Productos(1234,"motor", 8000000,8,"electrico","BMW","HZ-HP");
-		repositorio.save(producto1);*/
+		Productos producto1 = new Productos("motor", 8000000,8,"electrico","BMW","HZ-HP");
+		repositorio.save(producto1);
 
 	}
 }

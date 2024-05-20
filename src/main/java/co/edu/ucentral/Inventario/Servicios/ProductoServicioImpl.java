@@ -9,7 +9,7 @@ import java.util.List;
 
 
 @Service
-public class EstudianteServicioImpl implements ServiciosProducto{
+public class ProductoServicioImpl implements ServiciosProducto{
     @Autowired
     private RepositorioProducto repositorio;
 
@@ -17,5 +17,10 @@ public class EstudianteServicioImpl implements ServiciosProducto{
     @Override
     public List<Productos> ListarProductos() {
         return repositorio.findAll();
+    }
+
+    @Override
+    public Productos guardarProductos(Productos producto) {
+        return repositorio.save(producto);
     }
 }

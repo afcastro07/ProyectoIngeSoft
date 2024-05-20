@@ -10,7 +10,7 @@ import lombok.*;
 
 public class Productos {
     @Id
-    @Column(name="id_producto")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id_producto;
 
     @Column(name="tipo_producto", length = 20, nullable = false)
@@ -38,6 +38,15 @@ public class Productos {
 
     public Productos(long id_producto, String tipo_producto, long valor_producto, int cantidad_disponible, String modelo_producto, String marca_producto, String ref_producto) {
         this.id_producto = id_producto;
+        this.tipo_producto = tipo_producto;
+        this.valor_producto = valor_producto;
+        this.cantidad_disponible = cantidad_disponible;
+        Modelo_producto = modelo_producto;
+        Marca_producto = marca_producto;
+        Ref_producto = ref_producto;
+    }
+
+    public Productos(String tipo_producto, long valor_producto, int cantidad_disponible, String modelo_producto, String marca_producto, String ref_producto) {
         this.tipo_producto = tipo_producto;
         this.valor_producto = valor_producto;
         this.cantidad_disponible = cantidad_disponible;
