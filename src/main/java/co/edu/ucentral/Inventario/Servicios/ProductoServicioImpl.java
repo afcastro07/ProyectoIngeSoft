@@ -20,7 +20,22 @@ public class ProductoServicioImpl implements ServiciosProducto{
     }
 
     @Override
-    public Productos guardarProductos(Productos producto) {
-        return repositorio.save(producto);
+    public Productos guardarProductos(Productos productos) {
+        return repositorio.save(productos);
+    }
+
+    @Override
+    public Productos obtenerProductoId(Long id) {
+        return repositorio.findById(id).get();
+    }
+
+    @Override
+    public Productos actualizarProductos(Productos productos) {
+        return repositorio.save(productos);
+    }
+
+    @Override
+    public void eliminarProductos(Long id) {
+        repositorio.deleteById(id);
     }
 }
