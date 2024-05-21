@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class ControladorVenta {
@@ -29,7 +30,7 @@ public class ControladorVenta {
     @GetMapping({  "/cargueventa"})
     public String cargarVentaModal(Model model){
         Venta ventallenar = new Venta();
-        model.addAttribute("ventallenar",carrollenar);
+        model.addAttribute("ventallenar",ventallenar);
         return "formcreaventa";
     }
 
@@ -37,44 +38,29 @@ public class ControladorVenta {
     public String accioncrear(@ModelAttribute("ventallenar") Venta venta){
         System.out.println(venta);
 
-        Venta venta1 = venta
+        Venta venta1 = Venta
                 .builder()
-                .modelo(venta.getModelo())
-                .placa(venta.get())
+                .vent_fecha(venta.getVent_fecha())
+                .vent_pago(venta.getVent_pago())
                 .build();
 
 
-        List<Carro> lista = new ArrayList<>();
+        List<Venta> lista = new ArrayList<>();
 
-        lista.add(carro1);
-
-        p.setCarroList(lista);
-
-        Propietario p1 =  serviciosPropietario.crear(p);
-        System.out.println("++++++ "+p1);
-
+        lista.add(venta1);
+        //venta1.setV(lista);
 
         return "redirect:/principal";
     }
 
 
 
-    public void crearCarro(Carro carro){
-        serviciosCarro.crear(carro);
+    public void crearVenta(Venta venta){
+        serviciosVenta.crear(venta);
     }
 
-    public Carro buscarCarro(int pk){
-        Carro carro = serviciosCarro.consultarPK(pk);
-
-
-        /*if(carro != null){
-            Moto moto = serviciosMoto.consultarPK(carro.getIdmoto());
-            return  Carro
-                    .builder()
-                    .placa(carro.getPlaca())
-                    .moto(moto)
-                    .build();
-        }*/
+    public Venta buscarCarro(int pk){
+        Venta venta = serviciosVenta.consultarPK(pk);
         return null;
     }
 }

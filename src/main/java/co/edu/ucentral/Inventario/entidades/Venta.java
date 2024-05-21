@@ -1,7 +1,9 @@
 package co.edu.ucentral.Inventario.entidades;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
@@ -12,7 +14,6 @@ import java.util.Date;
 @NoArgsConstructor
 @Table(name = "ventas")
 @Builder
-@ToString
 public class Venta {
 
     @Id
@@ -24,5 +25,9 @@ public class Venta {
 
     @Column(name="vent_pago", nullable = false)
     private boolean vent_pago;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "clint_id")
+    private Cliente cliente;
 
 }
