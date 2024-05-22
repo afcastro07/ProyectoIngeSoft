@@ -19,7 +19,7 @@ public class ServiciosVenta implements OperacionesVenta {
 
     @Override
     public Venta actualizar(Venta venta) {
-        if (this.consultarPK(venta.getVen_id()) != null)
+        if (this.consultarPK(venta.getId()) != null)
             return repositorioVenta.save(venta);
         return null;
     }

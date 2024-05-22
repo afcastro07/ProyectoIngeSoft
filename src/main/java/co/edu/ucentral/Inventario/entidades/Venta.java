@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import java.util.Date;
 
 @Data
@@ -18,7 +17,7 @@ public class Venta {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int Id;
 
     @Column(name="fecha")
     private Date fecha;
@@ -26,8 +25,8 @@ public class Venta {
     @Column(name="pago", nullable = false)
     private boolean pago;
 
-   // @ManyToOne(fetch = FetchType.EAGER)
-    //@JoinColumn(name = "clint_id")
-    //private Cliente cliente;
+   @ManyToOne(fetch = FetchType.EAGER)
+   @JoinColumn(name = "Id")
+   private Cliente cliente;
 
 }
