@@ -40,8 +40,8 @@ public class ControladorVenta {
 
         Venta venta1 = Venta
                 .builder()
-                .vent_fecha(venta.getVent_fecha())
-                .vent_pago(venta.getVent_pago())
+                .fecha(venta.getFecha())
+                .pago(venta.isPago())
                 .build();
 
 

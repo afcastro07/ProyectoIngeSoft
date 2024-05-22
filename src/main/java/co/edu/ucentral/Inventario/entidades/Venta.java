@@ -18,16 +18,16 @@ public class Venta {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int ven_id;
+    private int id;
 
-    @Column(name="vent_fecha")
-    private Date vent_fecha;
+    @Column(name="fecha")
+    private Date fecha;
 
-    @Column(name="vent_pago", nullable = false)
-    private boolean vent_pago;
+    @Column(name="pago", nullable = false)
+    private boolean pago;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "clint_id")
-    private Cliente cliente;
+   // @ManyToOne(fetch = FetchType.EAGER)
+    //@JoinColumn(name = "clint_id")
+    //private Cliente cliente;
 
 }
