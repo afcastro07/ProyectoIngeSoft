@@ -59,7 +59,7 @@ public class ControladorVenta {
         serviciosVenta.crear(venta);
     }
 
-    public Venta buscarCarro(int pk){
+    public Venta buscarCliente(int pk){
         Venta venta = serviciosVenta.consultarPK(pk);
         return null;
     }
