@@ -16,23 +16,63 @@ public class Proveedor implements Serializable {
         @Id
         @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_PROVEEDORES")
         @SequenceGenerator(name = "SEQ_PROVEEDORES", sequenceName = "SEQ_PROVEEDORES", allocationSize = 1)
-        @Column (name = "prov_codigo")
+        @Column (name = "codigo")
         private int codigo;
 
 
-        @Column(name = "prov_ciudad", nullable = false)
+        @Column(name = "ciudad", nullable = false)
         private String ciudad;
 
 
-        @Column(name = "prov_direccion", nullable = false)
+        @Column(name = "direccion", nullable = false)
         private String direccion;
 
 
-        @Column(name = "prov_nombre", length=20)
+        @Column(name = "nombre", length=20)
         private String nombre;
 
 
-        @Column(name = "prov_email", length=20)
+        @Column(name = "email", length=20)
         private String email;
+
+        public int getCodigo() {
+                return codigo;
+        }
+
+        public void setCodigo(int codigo) {
+                this.codigo = codigo;
+        }
+
+        public String getCiudad() {
+                return ciudad;
+        }
+
+        public void setCiudad(String ciudad) {
+                this.ciudad = ciudad;
+        }
+
+        public String getDireccion() {
+                return direccion;
+        }
+
+        public void setDireccion(String direccion) {
+                this.direccion = direccion;
+        }
+
+        public String getNombre() {
+                return nombre;
+        }
+
+        public void setNombre(String nombre) {
+                this.nombre = nombre;
+        }
+
+        public String getEmail() {
+                return email;
+        }
+
+        public void setEmail(String email) {
+                this.email = email;
+        }
 }
 
