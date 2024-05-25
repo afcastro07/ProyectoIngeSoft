@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -14,44 +15,51 @@ public class ControladorProveedor {
     @Autowired
     ServiciosProveedor serviciosProveedor;
 
-    public void crearProveedor (Proveedor proveedor){
-        serviciosProveedor.crear(proveedor);
+    @GetMapping({  "/proveedor/lista"})
+    public String listarProveedores(Model model){
+        model.addAttribute("listaproveedoresT",serviciosProveedor.consultarT());
+
+        for (Proveedor elproveedor : serviciosProveedor.consultarT()){
+            System.out.println( elproveedor);
+        }
+        System.out.println("Paso por aca");
+        return "listaproveedores";
     }
-            @GetMapping({  "/proveedor/lista"})
-            public String listarProveedores(Model model){
-                model.addAttribute("listaproveedoresT",serviciosProveedor.consultarT());
 
-                for (Proveedor elproveedor : serviciosProveedor.consultarT()){
-                    System.out.println( elproveedor);
-                }
-                System.out.println("Paso por aca");
-                return "listaproveedores";
-            }
+    @GetMapping("/proveedor/nuevo")
+    public String mostrarFormularioRegistrarProveedores(Model model) {
+        Proveedor proveedor = new Proveedor();
+        model.addAttribute("proveedor", proveedor);
+        return "registroProveedor";
+    }
 
-            @GetMapping({  "/proveedor/nuevo"})
-            public String cargarproveedorModal(Model model){
-                Proveedor proveedorllenar = new Proveedor();
+    @PostMapping("/proveedor")
+    public String guardarProveedor(@ModelAttribute("proveedor")Proveedor proveedor){
+        serviciosProveedor.crear(proveedor);
+        return "redirect:/productos";
+    }
 
+    @GetMapping("/proveedor/editar/{id}")
+    public String mostrarFormularioEditarProveedor(@PathVariable int pk, Model model) {
+        model.addAttribute("proveedor",serviciosProveedor.consultarPK(pk));
+        return "editarProveedor";
+    }
 
-                model.addAttribute("proveedorllenar",proveedorllenar);
-                model.addAttribute("listaproveedor",this.serviciosProveedor.consultarT());
+    @PostMapping("/proveedor/{id}")
+    public String actualizarProveedor(@PathVariable int id, @ModelAttribute("proveedor") Proveedor proveedor, Model model){
+        Proveedor proveedorExistente = serviciosProveedor.consultarPK(id);
+        proveedorExistente.setCiudad(proveedor.getCiudad());
+        proveedorExistente.setDireccion(proveedor.getDireccion());
+        proveedorExistente.setNombre(proveedor.getNombre());
+        proveedorExistente.setEmail(proveedor.getEmail());
 
+        serviciosProveedor.actualizar(proveedorExistente);
+        return "redirect:/proveedor";
+    }
 
-                System.out.println("Paso por aca formulario");
-                return "formcreaproveedor";
-            }
-
-            @PostMapping({  "/accioncrear"})
-            public String accioncrear(@ModelAttribute("proveedorllenar") Proveedor proveedor){
-                System.out.println("Paso por aca para guardar formulario");
-                System.out.println(proveedor);
-
-                this.serviciosProveedor.crear(proveedor);
-                return "redirect:/proveedor/lista";
-            }
-
-            public Proveedor buscarCarro(int pk){
-                Proveedor proveedor = serviciosProveedor.consultarPK(pk);
-                return null;
-            }
+    @GetMapping("/proveedor/{id}")
+    public String eliminarProveedor(@PathVariable long id){
+        serviciosProveedor.borrar(id);
+        return "redirect:/equipos";
+    }
 }
