@@ -27,7 +27,7 @@ public class ServiciosProveedor implements OperacionesProveedor {
 
     @Override
     public void borrar(Proveedor proveedor) {
-        repositorioProveedor.delete(proveedor);
+        repositorioProveedor.delete(proveedor);;
     }
 
     @Override
@@ -38,7 +38,6 @@ public class ServiciosProveedor implements OperacionesProveedor {
     @Override
     public Proveedor consultarPK(int pk) {
         Proveedor proveedor =  repositorioProveedor.findById(pk).orElse(null);
-
         return null;
     }
 }

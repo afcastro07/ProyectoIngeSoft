@@ -10,56 +10,82 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Controller
 public class ControladorProveedor {
     @Autowired
     ServiciosProveedor serviciosProveedor;
 
-    @GetMapping({  "/proveedor/lista"})
-    public String listarProveedores(Model model){
-        model.addAttribute("listaproveedoresT",serviciosProveedor.consultarT());
+    @GetMapping(("/proveedor/lista"))
+    public String ListarProveedor(Model model) {
+        model.addAttribute("proveedor", serviciosProveedor.consultarT());
+        return "proveedor";
 
-        for (Proveedor elproveedor : serviciosProveedor.consultarT()){
-            System.out.println( elproveedor);
-        }
-        System.out.println("Paso por aca");
-        return "listaproveedores";
+    }
+    @GetMapping({  "/proveedor/nuevo"})
+    public String cargarProveedorModal(Model model){
+        Proveedor proveedorllenar = new Proveedor();
+        model.addAttribute("proveedorllenar",proveedorllenar);
+        return "proveedorllenar";
     }
 
-    @GetMapping("/proveedor/nuevo")
-    public String mostrarFormularioRegistrarProveedores(Model model) {
-        Proveedor proveedor = new Proveedor();
-        model.addAttribute("proveedor", proveedor);
-        return "registroProveedor";
+    @PostMapping({  "/accioncrear"})
+    public String accioncrear(@ModelAttribute("proveedorllenar") Proveedor proveedor){
+        System.out.println("Paso por aca para guardar formulario");
+        System.out.println(proveedor);
+
+        Proveedor p = Proveedor
+                .builder()
+                .codigo(proveedor.getCodigo())
+                .ciudad(proveedor.getCiudad())
+                .direccion(proveedor.getCiudad())
+                .nombre(proveedor.getNombre())
+                .email(proveedor.getEmail())
+                .build();
+
+
+        List<Proveedor> lista = new ArrayList<>();
+
+        lista.add(p);
+
+        p.setProveedorList(lista);
+
+        Proveedor p1 =  serviciosProveedor.crear(p);
+        System.out.println("++++++ "+p1);
+
+
+        return "redirect:/proveedor/lista";
     }
 
-    @PostMapping("/proveedor")
-    public String guardarProveedor(@ModelAttribute("proveedor")Proveedor proveedor){
-        serviciosProveedor.crear(proveedor);
-        return "redirect:/productos";
+    @PostMapping("/proveedores")
+    public String guardarProducto(@ModelAttribute("proveedores")Proveedor proveedores){
+        serviciosProveedor.crear(proveedores);
+        return "redirect:/proveedores";
     }
 
-    @GetMapping("/proveedor/editar/{id}")
-    public String mostrarFormularioEditarProveedor(@PathVariable int pk, Model model) {
-        model.addAttribute("proveedor",serviciosProveedor.consultarPK(pk));
+    @GetMapping("/proveedores/editar/{id}")
+    public String mostrarFormularioEditarProducto(@PathVariable int id, Model model) {
+        model.addAttribute("proveedores",serviciosProveedor.consultarPK(id));
         return "editarProveedor";
     }
 
-    @PostMapping("/proveedor/{id}")
-    public String actualizarProveedor(@PathVariable int id, @ModelAttribute("proveedor") Proveedor proveedor, Model model){
-        Proveedor proveedorExistente = serviciosProveedor.consultarPK(id);
-        proveedorExistente.setCiudad(proveedor.getCiudad());
-        proveedorExistente.setDireccion(proveedor.getDireccion());
-        proveedorExistente.setNombre(proveedor.getNombre());
-        proveedorExistente.setEmail(proveedor.getEmail());
+    @PostMapping("/proveedores/{id}")
+    public String actualizarProveedores(@PathVariable int id, @ModelAttribute("proveedores") Proveedor proveedores, Model model){
+        Proveedor proveedoExist = serviciosProveedor.consultarPK(id);
+        proveedoExist.setCiudad(proveedores.getCiudad());
+        proveedoExist.setDireccion(proveedores.getDireccion());
+        proveedoExist.setNombre(proveedores.getNombre());
+        proveedoExist.setEmail(proveedores.getEmail());
 
-        serviciosProveedor.actualizar(proveedorExistente);
-        return "redirect:/proveedor";
+        serviciosProveedor.actualizar(proveedoExist);
+        return "redirect:/proveedores";
     }
 
-    @GetMapping("/proveedor/{id}")
-    public String eliminarProveedor(@PathVariable long id){
+    @GetMapping("/proveedores/{id}")
+    public String eliminarProducto(@PathVariable Proveedor id){
         serviciosProveedor.borrar(id);
-        return "redirect:/equipos";
+        return "redirect:/proveedores";
     }
 }

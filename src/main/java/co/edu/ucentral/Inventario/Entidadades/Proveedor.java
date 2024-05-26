@@ -1,14 +1,13 @@
 package co.edu.ucentral.Inventario.Entidadades;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import java.io.Serializable;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
+@ToString
 @Entity(name = "Proveedor")
 @Table(name = "PROVEEDOR")
 public class Proveedor implements Serializable {
@@ -34,6 +33,7 @@ public class Proveedor implements Serializable {
 
         @Column(name = "email", length=20)
         private String email;
+
 
         public int getCodigo() {
                 return codigo;
