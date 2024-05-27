@@ -17,7 +17,7 @@
 <div class="container">
     <h1>Crear Proveedor</h1>
     <div class="card-body">
-        <form th:action="@{/cargueproveedor}" method="post" th:object="${proveedorllenar}">
+        <form th:action="@{/proveedor}" method="post" th:object="${proveedorllenar}">
             <div class="form-group">
                 <label class="control-label" for="ciudad">Ciudad: </label>
                 <input id="ciudad" type="text" class="form-control" th:field="*{ciudad}"

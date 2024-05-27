@@ -33,6 +33,7 @@ public class ControladorProveedor {
         Proveedor proveedorllenar = new Proveedor();
         model.addAttribute("proveedorllenar",proveedorllenar);
         return "formcreaproveedor";
+
     }
 
     @PostMapping("/proveedores")
