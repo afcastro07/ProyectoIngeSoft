@@ -20,53 +20,29 @@ public class ControladorProveedor {
 
     @GetMapping(("/proveedor/lista"))
     public String ListarProveedor(Model model) {
-        model.addAttribute("proveedor", serviciosProveedor.consultarT());
-        return "proveedor";
+        model.addAttribute("listarproveedoresT",serviciosProveedor.consultarT());
 
+        for (Proveedor elproveedor : serviciosProveedor.consultarT()){
+            System.out.println( elproveedor);
+        }
+        return "listaproveedores";
     }
-    @GetMapping({  "/proveedor/nuevo"})
+
+    @GetMapping({  "/cargueproveedor"})
     public String cargarProveedorModal(Model model){
         Proveedor proveedorllenar = new Proveedor();
         model.addAttribute("proveedorllenar",proveedorllenar);
-        return "proveedorllenar";
-    }
-
-    @PostMapping({  "/accioncrear"})
-    public String accioncrear(@ModelAttribute("proveedorllenar") Proveedor proveedor){
-        System.out.println("Paso por aca para guardar formulario");
-        System.out.println(proveedor);
-
-        Proveedor p = Proveedor
-                .builder()
-                .codigo(proveedor.getCodigo())
-                .ciudad(proveedor.getCiudad())
-                .direccion(proveedor.getCiudad())
-                .nombre(proveedor.getNombre())
-                .email(proveedor.getEmail())
-                .build();
-
-
-        List<Proveedor> lista = new ArrayList<>();
-
-        lista.add(p);
-
-        p.setProveedorList(lista);
-
-        Proveedor p1 =  serviciosProveedor.crear(p);
-        System.out.println("++++++ "+p1);
-
-
-        return "redirect:/proveedor/lista";
+        return "formcreaproveedor";
     }
 
     @PostMapping("/proveedores")
-    public String guardarProducto(@ModelAttribute("proveedores")Proveedor proveedores){
+    public String guardarProveedor(@ModelAttribute("proveedores")Proveedor proveedores){
         serviciosProveedor.crear(proveedores);
         return "redirect:/proveedores";
     }
 
     @GetMapping("/proveedores/editar/{id}")
-    public String mostrarFormularioEditarProducto(@PathVariable int id, Model model) {
+    public String mostrarFormularioEditarProveedor(@PathVariable int id, Model model) {
         model.addAttribute("proveedores",serviciosProveedor.consultarPK(id));
         return "editarProveedor";
     }
