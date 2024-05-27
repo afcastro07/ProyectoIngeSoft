@@ -25,7 +25,6 @@ public class ControladorProveedor {
         for (Proveedor elproveedor : serviciosProveedor.consultarT()){
             System.out.println(elproveedor);
         }
-        System.out.println("Paso por aca");
         return "listaproveedores";
     }
 
