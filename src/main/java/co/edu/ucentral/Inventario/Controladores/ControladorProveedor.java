@@ -23,8 +23,9 @@ public class ControladorProveedor {
         model.addAttribute("listarproveedoresT",serviciosProveedor.consultarT());
 
         for (Proveedor elproveedor : serviciosProveedor.consultarT()){
-            System.out.println( elproveedor);
+            System.out.println(elproveedor);
         }
+        System.out.println("Paso por aca");
         return "listaproveedores";
     }
 
@@ -36,10 +37,11 @@ public class ControladorProveedor {
 
     }
 
-    @PostMapping("/proveedores")
+    @PostMapping("/proveedor")
     public String guardarProveedor(@ModelAttribute("proveedores")Proveedor proveedores){
         serviciosProveedor.crear(proveedores);
-        return "redirect:/proveedores";
+        //return "redirect:/listaproveedores";
+        return "listaproveedores";
     }
 
     @GetMapping("/proveedores/editar/{id}")
