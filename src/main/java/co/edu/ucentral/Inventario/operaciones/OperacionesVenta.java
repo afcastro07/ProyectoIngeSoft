@@ -1,5 +1,4 @@
 package co.edu.ucentral.Inventario.operaciones;
-import co.edu.ucentral.Inventario.entidades.Venta;
 import java.util.List;
 
 public interface OperacionesVenta  {
