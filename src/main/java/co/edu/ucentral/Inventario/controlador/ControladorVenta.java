@@ -27,30 +27,16 @@ public class ControladorVenta {
         return "laventa";
     }
 
-    @GetMapping({  "/cargueventa"})
+    @GetMapping({"/cargueventa"})
     public String cargarVentaModal(Model model){
         Venta ventallenar = new Venta();
         model.addAttribute("ventallenar",ventallenar);
         return "formcreaventa";
     }
 
-    @PostMapping({  "/accioncrear"})
+    @PostMapping({"/accioncrear"})
     public String accioncrear(@ModelAttribute("ventallenar") Venta venta){
-        System.out.println(venta);
 
-        Venta venta1 = Venta
-                .builder()
-                .fecha(venta.getFecha())
-                .pago(venta.isPago())
-                .build();
-
-
-        List<Venta> lista = new ArrayList<>();
-
-        lista.add(venta1);
-        //venta1.setV(lista);
-
-        return "redirect:/principal";
     }
 
 
