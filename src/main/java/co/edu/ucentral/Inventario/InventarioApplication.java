@@ -16,7 +16,7 @@ public class InventarioApplication implements CommandLineRunner {
 
 	@Autowired
 	private RepositorioProducto repositorio;
-
+//merge 7.51 pm
 	@Override
 	public void run(String... args) throws Exception {
 		/*Productos producto1 = new Productos("motor", 8000000,8,"electrico","BMW","HZ-HP");
