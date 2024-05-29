@@ -1,7 +1,7 @@
 package co.edu.ucentral.Inventario.Servicios;
 
 import co.edu.ucentral.Inventario.Entidades.Productos;
-import co.edu.ucentral.Inventario.Repositorio.RepositorioProducto;
+import co.edu.ucentral.Inventario.Repositorios.RepositorioProducto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

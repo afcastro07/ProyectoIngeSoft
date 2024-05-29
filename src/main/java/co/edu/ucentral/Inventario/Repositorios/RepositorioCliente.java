@@ -1,4 +1,4 @@
-package co.edu.ucentral.Inventario.repositorio;
+package co.edu.ucentral.Inventario.Repositorios;
 
 import co.edu.ucentral.Inventario.entidades.Cliente;
 import org.springframework.data.jpa.repository.JpaRepository;

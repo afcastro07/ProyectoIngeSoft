@@ -1,5 +1,6 @@
-package co.edu.ucentral.Inventario.controlador;
+package co.edu.ucentral.Inventario.Controladores;
 
+import co.edu.ucentral.Inventario.Entidades.Proveedor;
 import co.edu.ucentral.Inventario.entidades.Cliente;
 import co.edu.ucentral.Inventario.servicios.ServiciosCliente;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,22 +38,8 @@ public class ControladorCliente {
 
     @PostMapping({  "/accioncrear"})
     public String accioncrear(@ModelAttribute("clientellenar") Cliente cliente){
-        System.out.println(cliente);
-
-        Cliente cliente1 = Cliente
-                .builder()
-                .Id(cliente.getId())
-                .ciudad(cliente.getCiudad())
-                .direccion(cliente.getDireccion())
-                .nombre(cliente.getNombre())
-                .build();
-
-
-        List<Cliente> lista = new ArrayList<>();
-
-        lista.add(cliente1);
-
-        return "redirect:/principal";
+        serviciosCliente.crear(cliente);
+        return "listaclientes";
     }
 
     public void crearCliente(Cliente cliente){

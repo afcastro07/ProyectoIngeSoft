@@ -1,9 +1,9 @@
 package co.edu.ucentral.Inventario.servicios;
 import co.edu.ucentral.Inventario.operaciones.OperacionesCliente;
 import co.edu.ucentral.Inventario.entidades.Cliente;
-import co.edu.ucentral.Inventario.repositorio.RepositorioCliente;
+import co.edu.ucentral.Inventario.Repositorios.RepositorioCliente;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 public class ServiciosCliente implements OperacionesCliente {
