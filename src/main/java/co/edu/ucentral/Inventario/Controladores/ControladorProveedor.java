@@ -22,7 +22,7 @@ public class ControladorProveedor {
         for (Proveedor elproveedor : serviciosProveedor.consultarT()){
             System.out.println(elproveedor);
         }
-        return "listaproveedoresT";
+        return "listaproveedores";
     }
 
     @GetMapping({  "/cargueproveedor"})
