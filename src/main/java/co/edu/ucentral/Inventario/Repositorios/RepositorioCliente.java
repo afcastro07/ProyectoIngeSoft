@@ -1,6 +1,6 @@
 package co.edu.ucentral.Inventario.Repositorios;
 
-import co.edu.ucentral.Inventario.entidades.Cliente;
+import co.edu.ucentral.Inventario.Entidades.Cliente;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

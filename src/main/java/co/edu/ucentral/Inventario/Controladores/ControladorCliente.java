@@ -1,8 +1,7 @@
 package co.edu.ucentral.Inventario.Controladores;
 
-import co.edu.ucentral.Inventario.Entidades.Proveedor;
-import co.edu.ucentral.Inventario.entidades.Cliente;
-import co.edu.ucentral.Inventario.servicios.ServiciosCliente;
+import co.edu.ucentral.Inventario.Entidades.Cliente;
+import co.edu.ucentral.Inventario.Servicios.ServiciosCliente;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
