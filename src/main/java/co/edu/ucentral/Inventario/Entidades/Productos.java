@@ -3,6 +3,8 @@ package co.edu.ucentral.Inventario.Entidades;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.io.Serializable;
+
 @Entity
 @Table(name = "PRODUCTOS")
 @Data
@@ -113,5 +115,77 @@ public class Productos {
 
     public void setRef_producto(String ref_producto) {
         Ref_producto = ref_producto;
+    }
+
+    @Data
+    @AllArgsConstructor
+    @NoArgsConstructor
+    @ToString
+    @Entity(name = "Proveedor")
+    @Table(name = "PROVEEDOR")
+    public static class Proveedor implements Serializable {
+
+            @Id
+            @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_PROVEEDORES")
+            @SequenceGenerator(name = "SEQ_PROVEEDORES", sequenceName = "SEQ_PROVEEDORES", allocationSize = 1)
+            @Column (name = "codigo")
+            private int codigo;
+
+
+            @Column(name = "ciudad", nullable = false)
+            private String ciudad;
+
+
+            @Column(name = "direccion", nullable = false)
+            private String direccion;
+
+
+            @Column(name = "nombre", length=20)
+            private String nombre;
+
+
+            @Column(name = "email", length=20)
+            private String email;
+
+
+            public int getCodigo() {
+                    return codigo;
+            }
+
+            public void setCodigo(int codigo) {
+                    this.codigo = codigo;
+            }
+
+            public String getCiudad() {
+                    return ciudad;
+            }
+
+            public void setCiudad(String ciudad) {
+                    this.ciudad = ciudad;
+            }
+
+            public String getDireccion() {
+                    return direccion;
+            }
+
+            public void setDireccion(String direccion) {
+                    this.direccion = direccion;
+            }
+
+            public String getNombre() {
+                    return nombre;
+            }
+
+            public void setNombre(String nombre) {
+                    this.nombre = nombre;
+            }
+
+            public String getEmail() {
+                    return email;
+            }
+
+            public void setEmail(String email) {
+                    this.email = email;
+            }
     }
 }
