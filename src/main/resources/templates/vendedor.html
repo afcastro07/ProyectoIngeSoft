@@ -17,18 +17,22 @@
         .btn {
             background-color: #007bff; /* Bootstrap primary color */
             color: white;
-            padding: 10px 20px;
             font-size: 18px;
             border: none;
             cursor: pointer;
-            margin: 10px;
             border-radius: 5px;
             text-decoration: none; /* Remove underline from links */
-            display: inline-block;
             width: 150px; /* Establece un ancho fijo para todos los botones */
+            display: inline-block;
         }
         .btn:hover {
             background-color: #0056b3; /* Darker blue */
+        }
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -36,9 +40,10 @@
 
 <h1>Panel de Vendedor</h1>
 
-<a class="btn" th:href="@{/clientes/lista}">Crear Clientes</a>
-<a class="btn" th:href="@{/principal}">Crear Ventas</a>
-
+<div class="btn-container">
+    <a class="btn" th:href="@{/clientes/lista}">Crear Clientes</a>
+    <a class="btn" th:href="@{/principal}">Crear Ventas</a>
+</div>
 
 </body>
 </html>
