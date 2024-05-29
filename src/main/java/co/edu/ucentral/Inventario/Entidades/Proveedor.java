@@ -1,4 +1,4 @@
-package co.edu.ucentral.Inventario.Entidadades;
+package co.edu.ucentral.Inventario.Entidades;
 
 import jakarta.persistence.*;
 import lombok.*;
