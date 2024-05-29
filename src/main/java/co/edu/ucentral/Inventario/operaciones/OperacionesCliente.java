@@ -1,6 +1,6 @@
-package co.edu.ucentral.Inventario.operaciones;
+package co.edu.ucentral.Inventario.Operaciones;
 
-import co.edu.ucentral.Inventario.entidades.Cliente;
+import co.edu.ucentral.Inventario.Entidades.Cliente;
 
 import java.util.List;
 
