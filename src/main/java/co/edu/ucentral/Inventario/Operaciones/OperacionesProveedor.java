@@ -1,6 +1,6 @@
 package co.edu.ucentral.Inventario.Operaciones;
 
-import co.edu.ucentral.Inventario.Entidadades.Proveedor;
+import co.edu.ucentral.Inventario.Entidades.Proveedor;
 
 import java.util.List;
 public interface OperacionesProveedor {

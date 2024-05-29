@@ -1,6 +1,6 @@
 package co.edu.ucentral.Inventario.Controladores;
 
-import co.edu.ucentral.Inventario.Entidades.Productos;
+import co.edu.ucentral.Inventario.Entidades.*;
 import co.edu.ucentral.Inventario.Servicios.ServiciosProveedor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,7 +19,7 @@ public class ControladorProveedor {
     public String ListarProveedor(Model model) {
         model.addAttribute("listarproveedoresT",serviciosProveedor.consultarT());
 
-        for (Productos.Proveedor elproveedor : serviciosProveedor.consultarT()){
+        for (Proveedor elproveedor : serviciosProveedor.consultarT()){
             System.out.println(elproveedor);
         }
         return "listaproveedores";
