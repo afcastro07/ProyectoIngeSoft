@@ -22,6 +22,7 @@ public class InventarioApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		/*Productos producto1 = new Productos(1234,"motor", 8000000,8,"electrico","BMW","HZ-HP");
 		repositorio.save(producto1);*/
+		//Prueba
 
 	}
 }
