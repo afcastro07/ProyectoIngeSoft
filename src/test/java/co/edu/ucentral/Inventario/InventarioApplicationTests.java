@@ -1,10 +1,10 @@
-package co.ucentral.sistemas.InventarioTechnicha;
+package co.edu.ucentral.Inventario;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class InventarioTechnichaApplicationTests {
+class InventarioApplicationTests {
 
 	@Test
 	void contextLoads() {
