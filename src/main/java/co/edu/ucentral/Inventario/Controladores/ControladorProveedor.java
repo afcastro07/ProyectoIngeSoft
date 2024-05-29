@@ -1,6 +1,6 @@
 package co.edu.ucentral.Inventario.Controladores;
 
-import co.edu.ucentral.Inventario.Entidades.*;
+import co.edu.ucentral.Inventario.Entidades.Proveedor;
 import co.edu.ucentral.Inventario.Servicios.ServiciosProveedor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,14 +27,14 @@ public class ControladorProveedor {
 
     @GetMapping({  "/cargueproveedor"})
     public String cargarProveedorModal(Model model){
-        Productos.Proveedor proveedorllenar = new Productos.Proveedor();
+        Proveedor proveedorllenar = new Proveedor();
         model.addAttribute("proveedorllenar",proveedorllenar);
         return "formcreaproveedor";
 
     }
 
     @PostMapping("/proveedor")
-    public String guardarProveedor(@ModelAttribute("proveedores") Productos.Proveedor proveedores){
+    public String guardarProveedor(@ModelAttribute("proveedores")Proveedor proveedores){
         serviciosProveedor.crear(proveedores);
         //return "redirect:/listaproveedores";
         return "listaproveedores";
@@ -47,8 +47,8 @@ public class ControladorProveedor {
     }
 
     @PostMapping("/proveedores/{id}")
-    public String actualizarProveedores(@PathVariable int id, @ModelAttribute("proveedores") Productos.Proveedor proveedores, Model model){
-        Productos.Proveedor proveedoExist = serviciosProveedor.consultarPK(id);
+    public String actualizarProveedores(@PathVariable int id, @ModelAttribute("proveedores") Proveedor proveedores, Model model){
+        Proveedor proveedoExist = serviciosProveedor.consultarPK(id);
         proveedoExist.setCiudad(proveedores.getCiudad());
         proveedoExist.setDireccion(proveedores.getDireccion());
         proveedoExist.setNombre(proveedores.getNombre());
@@ -59,7 +59,7 @@ public class ControladorProveedor {
     }
 
     @GetMapping("/proveedores/{id}")
-    public String eliminarProducto(@PathVariable Productos.Proveedor id){
+    public String eliminarProducto(@PathVariable Proveedor id){
         serviciosProveedor.borrar(id);
         return "redirect:/proveedores";
     }

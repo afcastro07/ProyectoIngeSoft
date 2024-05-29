@@ -1,6 +1,6 @@
 package co.edu.ucentral.Inventario.Servicios;
 
-import co.edu.ucentral.Inventario.Entidadades.Proveedor;
+import co.edu.ucentral.Inventario.Entidades.Proveedor;
 import co.edu.ucentral.Inventario.Operaciones.OperacionesProveedor;
 import co.edu.ucentral.Inventario.Repositorios.RepositorioProveedor;
 import org.springframework.beans.factory.annotation.Autowired;
