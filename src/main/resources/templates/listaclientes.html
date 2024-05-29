@@ -3,7 +3,7 @@
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
     <meta charset="UTF-8">
-    <title>Proveedores</title>
+    <title>Clientes</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 
@@ -16,7 +16,7 @@
 <body>
 <div class="container" style="width : 90%">
     <br>
-    <a class="btn btn-primary" href="#" th:href="@{/cargueproveedor}">Adicionar Proveedor</a>
+    <a class="btn btn-primary" href="#" th:href="@{/carguecliente}">Adicionar Cliente</a>
 
     <br> <br>
 
@@ -27,23 +27,21 @@
             <th>Ciudad</th>
             <th>Direccion</th>
             <th>Nombre</th>
-            <th>Email</th>
             <th>Acciones</th>
 
         </tr>
         </thead>
         <tbody>
 
-        <tr th:each="dato : ${listaproveedorT}">
-            <!--<td th:text="${dato.id}">Codigo</td>-->
+        <tr th:each="dato : ${listaclientes}">
+            <!--<td th:text="${dato.id}">ID</td>-->
             <td th:text="${dato.ciudad}">Ciudad</td>
             <td th:text="${dato.direccion}">Direccion</td>
             <td th:text="${dato.nombre}">Nombre</td>
-            <td th:text="${dato.email}">Email</td>
 
             <td >
-                <a th:href="@{/proveedor/editar/{id}(id=${proveedor.id})}" class="btn btn-info btn-sm">Editar</a>
-                <a th:href="@{/proveedor/eliminar/{id}(id=${proveedor.id})}" class="btn btn-danger btn-sm">Eliminar</a>
+                <a th:href="@{/cliente/editar/{id}(id=${cliente.id})}" class="btn btn-info btn-sm">Editar</a>
+                <a th:href="@{/cliente/eliminar/{id}(id=${cliente.id})}" class="btn btn-danger btn-sm">Eliminar</a>
             </td>
 
         </tr>

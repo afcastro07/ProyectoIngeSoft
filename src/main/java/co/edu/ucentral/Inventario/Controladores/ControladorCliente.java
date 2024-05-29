@@ -1,6 +1,7 @@
 package co.edu.ucentral.Inventario.Controladores;
 
 import co.edu.ucentral.Inventario.Entidades.Cliente;
+import co.edu.ucentral.Inventario.Entidades.Proveedor;
 import co.edu.ucentral.Inventario.Servicios.ServiciosCliente;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,14 +19,14 @@ public class ControladorCliente {
     @Autowired
     ServiciosCliente serviciosCliente;
 
-    @GetMapping({"/principal"})
-    public String listarCliente(Model model){
-        model.addAttribute("listaclientesT",serviciosCliente.consultarT());
+    @GetMapping({"/clientes/lista"})
+    public String listarClientes(Model model){
+        model.addAttribute("listarclientesT",serviciosCliente.consultarT());
 
         for (Cliente elcliente : serviciosCliente.consultarT()){
             System.out.println(elcliente);
         }
-        return "elcliente";
+        return "listaclientes";
     }
 
     @GetMapping({  "/carguecliente"})
