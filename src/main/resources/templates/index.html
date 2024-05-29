@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TecNicha</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        .btn-custom {
-            background-color: #007bff;
-            border-color: #007bff;
-            color: white;
-        }
-        .btn-custom:hover {
-            background-color: #0056b3;
-            border-color: #004085;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TecNicha</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .btn-custom {
+        background-color: #007bff;
+        border-color: #007bff;
+        color: white;
+    }
+    .btn-custom:hover {
+        background-color: #0056b3;
+        border-color: #004085;
+    }
+  </style>
 </head>
 <body>
 <div class="container text-center mt-5">
-    <h1 class="mb-4">TecNicha</h1>
-    <div class="row justify-content-center">
-        <div class="form-group col-sm-4">
-            <a th:href="@{/administrador}" class="btn btn-custom btn-lg btn-block">Administrador</a>
-        </div>
-        <div class="form-group col-sm-4">
-            <a href="/vendedor.html" class="btn btn-custom btn-lg btn-block">Vendedor</a>
-        </div>
+  <h1 class="mb-4">TecNicha</h1>
+  <div class="row justify-content-center">
+    <div class="form-group col-sm-4">
+      <a th:href="@{/administrador}" class="btn btn-custom btn-lg btn-block">Administrador</a>
     </div>
+    <div class="form-group col-sm-4">
+      <a href=@{/vendedor}" class="btn btn-custom btn-lg btn-block">Vendedor</a>
+    </div>
+  </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
